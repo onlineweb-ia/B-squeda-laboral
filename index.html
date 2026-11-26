@@ -6,7 +6,7 @@
 <header class="hero"><div class="wrap"><div class="eyebrow">Oportunidades laborales</div><h1>Buscá trabajo<br>en un solo lugar.</h1><p>Escribí el puesto y la zona. Te damos accesos directos para buscar en portales de empleo, consultoras y empresas, sin entrar a cada sitio para empezar de cero.</p></div></header>
 <main><section class="search-panel"><form id="searchForm"><div class="fields"><div><label for="job">¿Qué trabajo buscás?</label><input id="job" placeholder="Ej. limpieza, repositor, chofer" autocomplete="off"></div><div><label for="location">¿En qué zona?</label><input id="location" placeholder="Ej. González Catán" autocomplete="off"></div><button type="submit">Buscar en los portales ↗</button></div></form><p class="help">Computrabajo e Indeed abren resultados con tu búsqueda. En los demás sitios entrás al buscador oficial para completar los filtros; así evitamos búsquedas con términos o localidades mal interpretados.</p><div id="message" class="message" role="alert"></div></section>
 <section id="searchResults" hidden aria-live="polite"><div class="result-head"><h2>Portales para tu búsqueda</h2><span id="resultCount"></span></div><p id="searchSummary" class="summary"></p><nav id="filters" class="filters" aria-label="Filtrar por tipo de portal"></nav><div id="cards" class="cards"></div></section>
-<div class="notice"><strong>Importante:</strong> los resultados pertenecen a cada portal y pueden variar según sus filtros y cobertura. Solo se precargan filtros cuando el formato de búsqueda está comprobado. Revisá siempre que el aviso siga vigente y nunca pagues para postularte.</div></main><footer>Herramienta gratuita e independiente. Los portales y las empresas mencionados pertenecen a sus respectivos titulares.</footer>
+<div class="notice"><strong>Importante:</strong> los resultados pertenecen a cada portal y pueden variar según sus filtros y cobertura. Solo se precargan filtros cuando el formato de búsqueda está comprobado. Revisá siempre que el aviso siga vigente y nunca pagues para postularte.</div></main><footer>Herramienta gratuita e independiente. Los portales y las empresas mencionados pertenecen a sus respectivos titulares. <span style="display:block;margin-top:6px">Versión 2026.11.26-02</span></footer>
 <script>
 (function(){"use strict";
 const portals=[
@@ -54,8 +54,8 @@ function searchConfig(p){
   const gba=["moron","moreno","ituzaingo","merlo","san-justo","ramos-mejia","gonzalez-catan","gregorio-de-laferrere","la-matanza","castelar","haedo","ciudad-evita","villa-madero","tapiales","virrey-del-pino","san-miguel","hurlingham","tres-de-febrero","caseros","quilmes","lanus","avellaneda","lomas-de-zamora","temperley","berazategui","florencio-varela","ezeiza","esteban-echeverria","adrogue","burzaco","banfield","glew","longchamps"];
   const isGba=gba.includes(placeSlug)||placeSlug.includes("buenos-aires")||placeSlug.includes("zona-oeste");
   const url=isGba
-   ?"https://ar.computrabajo.com/trabajo-de-"+jobSlug+"-en-buenos-aires-gba-en-"+placeSlug
-   :"https://ar.computrabajo.com/trabajo-de-"+jobSlug;
+   ?"https://ar.computrabajo.com/trabajo-de-"+jobSlug+"-en-buenos-aires-gba-en-"+placeSlug+"?q="+encodeURIComponent(job)
+   :"https://ar.computrabajo.com/trabajo-de-"+jobSlug+"?q="+encodeURIComponent(job);
   return {url,direct:true,label:"Ver resultados ↗"};
  }
  // Para no volver a enviar a resultados incorrectos, los portales cuyo formato
