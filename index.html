@@ -51,7 +51,7 @@ function searchConfig(p){
   return {url:"https://ar.indeed.com/jobs?q="+encodeURIComponent(job)+"&l="+encodeURIComponent(place),direct:true,label:"Ver resultados ↗"};
  }
  if(p.name==="Computrabajo"){
-  const gba=["moron","moreno","ituzaingo","merlo","san-justo","ramos-mejia","gonzalez-catan","gregorio-de-laferrere","la-matanza","castelar","haedo","ciudad-evita","villa-madero","tapia les","virrey-del-pino","san-miguel","hurlingham","tres-de-febrero","caseros","quilmes","lanus","avellaneda","lomas-de-zamora","temperley","berazategui","florencio-varela","ezeiza","esteban-echeverria","adrogue","burzaco","banfield","glew","longchamps"];
+  const gba=["moron","moreno","ituzaingo","merlo","san-justo","ramos-mejia","gonzalez-catan","gregorio-de-laferrere","la-matanza","castelar","haedo","ciudad-evita","villa-madero","tapiales","virrey-del-pino","san-miguel","hurlingham","tres-de-febrero","caseros","quilmes","lanus","avellaneda","lomas-de-zamora","temperley","berazategui","florencio-varela","ezeiza","esteban-echeverria","adrogue","burzaco","banfield","glew","longchamps"];
   const isGba=gba.includes(placeSlug)||placeSlug.includes("buenos-aires")||placeSlug.includes("zona-oeste");
   const url=isGba
    ?"https://ar.computrabajo.com/trabajo-de-"+jobSlug+"-en-buenos-aires-gba-en-"+placeSlug
