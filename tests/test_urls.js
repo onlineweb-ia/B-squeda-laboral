@@ -20,7 +20,7 @@ for(const j of ["operario","Operario","limpieza","Limpieza","repositor","chofer"
  const r=run(j,p);const js=j.toLowerCase();
  const need={"Computrabajo":"trabajo-de-"+js+"-en-buenos-aires-gba-en-"+(p==="Morón"?"moron":"gonzalez-catan")+"?q="+j,
   "Indeed Argentina":"q="+j+"&l="+encodeURIComponent(p),"Jooble Argentina":"ukw="+j+"&rgns="+encodeURIComponent(p),"Talent.com":"k="+j+"&l="+encodeURIComponent(p),
-  "Bumeran":"/en-buenos-aires/empleos-busqueda-"+js+".html","ZonaJobs":"empleos-busqueda-"+js+".html"};
+  "Bumeran":"/en-buenos-aires/empleos-busqueda-"+js+".html","ZonaJobs":"empleos-busqueda-"+js+".html","Clasificados Clarín":"clasificados.clarin.com/inicio/index#!/1/listado/"+encodeURIComponent(j)+"/Empleos"};
  for(const [n,frag] of Object.entries(need)){const ok=r[n]&&r[n].includes(frag);if(!ok){fail++;console.log("FAIL",j,p,n,r[n],"esperaba",frag)}}
  for(const [n,u] of Object.entries(r))if(/perario|impieza|choer|hoer|%CC%81|--/.test(u.replace(/^https?:\/\//,""))&&false){}
  if(Object.keys(r).length!==31){fail++;console.log("FAIL cantidad",Object.keys(r).length)}
@@ -30,4 +30,5 @@ let r=run("chofer","");if(/&l=|rgns|-en-/.test(r["Indeed Argentina"]+r["Jooble A
 r=run("chofer","Rosario");if(r["Computrabajo"].includes("-en-")){fail++;console.log("FAIL rosario",r["Computrabajo"])}
 // los portales sin formato comprobado abren la home oficial
 r=run("operario","Morón");if(r["Adecco"]!=="https://www.adecco.com/es-ar"){fail++;console.log("FAIL adecco",r["Adecco"])}
+if(!r["Clasificados Clarín"]||r["Clasificados Clarín"].includes("empleos.clarin.com")||!r["Clasificados Clarín"].includes("/Empleos")){fail++;console.log("FAIL clarin",r["Clasificados Clarín"])}
 console.log(fail?"FALLÓ ("+fail+")":"OK: todas las URLs correctas");process.exit(fail?1:0);
