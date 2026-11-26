@@ -55,7 +55,7 @@ function searchConfig(p){
   const isGba=gba.includes(placeSlug)||placeSlug.includes("buenos-aires")||placeSlug.includes("zona-oeste");
   const url=isGba
    ?"https://ar.computrabajo.com/trabajo-de-"+jobSlug+"-en-buenos-aires-gba-en-"+placeSlug+"?q="+encodeURIComponent(job)
-   :"https://ar.computrabajo.com/trabajo-de-"+jobSlug+"?q="+encodeURIComponent(job);
+   :"https://ar.computrabajo.com/trabajo-de-"+jobSlug+"?q="+encodeURIComponent(job.toUpperCase());
   return {url,direct:true,label:"Ver resultados ↗"};
  }
  // Para no volver a enviar a resultados incorrectos, los portales cuyo formato
