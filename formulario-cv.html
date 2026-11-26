@@ -110,7 +110,17 @@ form small{display:block;margin-top:12px;text-align:center;color:#8995a7;line-he
 <script>
 document.getElementById("cvForm").addEventListener("submit", function(event) {
   event.preventDefault();
-  alert("Formulario completado. Para recibir y guardar los datos, primero hay que conectar un servicio de recepción.");
+  var f = event.target, v = function(n){ return (f.elements[n].value || "").trim(); };
+  var texto = "Hola, completé el formulario de CV.\n\n" +
+    "Estado de mi CV: " + v("estado_cv") + "\n" +
+    "¿Conocía los sistemas ATS?: " + v("conocimiento_ats") + "\n" +
+    "Cuánto invertiría: " + v("presupuesto") + "\n" +
+    "Trabajo que busco: " + v("puesto") + "\n" +
+    "Localidad: " + v("localidad") + "\n" +
+    "Experiencia: " + v("experiencia") + "\n" +
+    "Nombre: " + v("nombre") + "\n" +
+    "WhatsApp: " + v("whatsapp");
+  window.location.href = "https://wa.me/5491168713479?text=" + encodeURIComponent(texto);
 });
 </script>
 </body>
